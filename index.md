@@ -1,37 +1,75 @@
-## Hello my name is Celso
+# Meu gerenciador de projetos
 
-You can use the [editor on GitHub](https://github.com/CelsoAlmeidaLF/my_gerenc_project/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+  Este gerenciador de projetos é desenvolvido para gerenciar seus projetos de desenvolvimento em ambientes linux.
+  <hr>
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Instalação
 
-### Markdown
+  Para melhor utilização dos comandos a seguir execute os comandos sitados abaixo.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+```sh
 
-```markdown
-Syntax highlighted code block
+# navega para pasta home
+$ cd ~
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+# crie uma pasta .bin/objects na pasta home
+$ mkdir .bin .bin/objects
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+  Após criar a pasta `.bin/objects`, copie e cole o programa na mesma.
 
-### Jekyll Themes
+```sh
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/CelsoAlmeidaLF/my_gerenc_project/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+# copia para pasta destinada ./bin/objects
+$ cp gerenc-projects/gpdev.sh ~/.bin/objects
 
-### Support or Contact
+```
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+  Após copiar o arquivo na pasta destinada, coloque o programa na variavel de ambiente
+  `PATH` e os comandos de gerenciameto de projetos
+  funcionara corretamente.
+
+```sh
+
+# instala o programa na variavel ambiente
+$ PATH="$HOME/.bin/objects/:$PATH"
+
+# ...
+$ echo '''
+# GPDEV
+if [ -d "$HOME/.bin/objects" ]; then
+  PATH="$HOME .bin/objects:$PATH"
+fi''' >> .profile
+
+```
+<hr>
+
+## Comandos do Gerenciador
+
+  Este programa é um exemplo simples, de como você pode gerenciar seus projetos de uma forma simples
+  em ganhar tempo com atividades rotineiras de criação de novos projetos e teste de desenvolvimento.
+
+  E um exemplo que irei utilizar, farei um projeto para web simples em `ruby-on-rails` e irei utilizar o este gerenciador simples para fazer os procedimentos rotineiros.
+
+  O camando para o mesmo sera: `gpdev.sh -web app-web -ruby`
+
+```sh
+
+# cria um projeto em rubi-on-rails
+$ gpdev.sh -web app-web -ruby
+
+# executa o projeto criado
+$ gpdev.sh -teste app-web -ruby
+
+```
+
+1. Escolha o comandos:
+`-new `, `-run `, `-web `  e  `-teste`.
+
+2. Digite o nome do projeto que ira ser o nome do diretório raiz.
+
+3.  Em seguida digite a tecnologia que deseja trabalhar:  
+`-ruby `, `-python `, `-react `, `-nodejs ` e `-angular `.
+
+---
+Editado em: Agosto de 2020
